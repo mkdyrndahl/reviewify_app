@@ -26,6 +26,7 @@ function MovieList(props){
               director={movie.director}
               description={movie.description}
               image={movie.image}
+              editMovie={props.editMovie}
               deleteMovie={props.deleteMovie}
             />
           ))}
