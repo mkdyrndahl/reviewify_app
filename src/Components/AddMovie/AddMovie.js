@@ -2,57 +2,83 @@ import React from "react";
 
 function AddMovie(props) {
   return (
-    <div className="col-6 container">
-      <h1>Add Movie</h1>
-      <table className="table">
-          <tbody>
-        <tr>
-          <td>Title:</td>
-          <td>
-            <input type="text" id="title" onChange={props.handleInputChange}/>
-          </td>
-        </tr>
-        <tr>
-          <td>Genres:</td>
-          <td>
-            <input type="text" id="genres" onChange={props.handleInputChange}/>
-          </td>
-        </tr>
-        <tr>
-          <td>Director:</td>
-          <td>
-            <input type="text" id="director" onChange={props.handleInputChange}/>
-          </td>
-        </tr>
-        <tr>
-          <td>Length:</td>
-          <td>
-            <input type="number" id="length" onChange={props.handleInputChange}/>
-          </td>
-        </tr>
-        <tr>
-          <td>Description:</td>
-          <td>
-            <input type="textarea" id="description" onChange={props.handleInputChange}/>
-          </td>
-        </tr>
-        <tr>
-          <td>Image:</td>
-          <td>
-            <input
-              id="image"
-              type="file"
-              className="file-upload"
-              onChange={props.handleInputChange}
-            />
-          </td>
+    
+      <form className="container">
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">
+            Movie Title
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="title"
+            onChange={props.handleInputChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="genres" className="form-label">
+            Genres
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="genres"
+            onChange={props.handleInputChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="director" className="form-label">
+            Director
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="director"
+            onChange={props.handleInputChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="length" className="form-label">
+            Length
+          </label>
+          <input
+            type="number"
+            className="form-control"
+            id="length"
+            onChange={props.handleInputChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="description" className="form-label">
+            Description
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="decription"
+            onChange={props.handleInputChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="image" className="form-label">
+            Image
+          </label>
+          <input
+            type="file"
+            className="form-control"
+            id="image"
+            onChange={props.handleImageChange}
+            onClick={props.resetInput}
+            
+          />
+        </div>
+        <input
+          type="submit"
+          className="btn btn-primary"
+          onClick={props.addMovie} value="Add Movie"/>
           
-        </tr>
-        </tbody>
-      </table>
-      <img className="text-center" src={props.image} alt=""/><br/>
-      <button className="btn btn-primary" onClick={props.addMovie}>Add Movie</button>
-    </div>
+      </form>
+    
   );
 }
 
