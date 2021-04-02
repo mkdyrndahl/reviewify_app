@@ -3,8 +3,8 @@ import React from "react";
 function AddMovie(props) {
   return (
     
-      <form className="container">
-        <div className="mb-3">
+      <form className="container w-50">
+        <div className="mb-2">
           <label htmlFor="title" className="form-label">
             Movie Title
           </label>
@@ -15,7 +15,7 @@ function AddMovie(props) {
             onChange={props.handleInputChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-2">
           <label htmlFor="genres" className="form-label">
             Genres
           </label>
@@ -26,7 +26,7 @@ function AddMovie(props) {
             onChange={props.handleInputChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-2">
           <label htmlFor="director" className="form-label">
             Director
           </label>
@@ -37,7 +37,7 @@ function AddMovie(props) {
             onChange={props.handleInputChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-2">
           <label htmlFor="length" className="form-label">
             Length
           </label>
@@ -48,7 +48,7 @@ function AddMovie(props) {
             onChange={props.handleInputChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-2">
           <label htmlFor="description" className="form-label">
             Description
           </label>
@@ -69,12 +69,11 @@ function AddMovie(props) {
             id="image"
             onChange={props.handleImageChange}
             onClick={props.resetInput}
-            
           />
         </div>
         <input
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary mb-4"
           onClick={props.addMovie} value="Add Movie"/>
           
       </form>

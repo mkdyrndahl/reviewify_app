@@ -15,6 +15,16 @@ export async function addMovieToServer(newMovie){
 
 }
 
+export async function deleteMovieFromServer(id){
+    const data = JSON.stringify({"id" : id});
+    console.log(data);
+    return fetch(`${process.env.REACT_APP_API_BASE_URL}admin/movies`,{
+        method: "DELETE",
+        headers: {"Content-Type":"application/json"},
+        body: data
+    }).then((response) => response.json());
+}
+
 
 export async function uploadImage(formData){
     return fetch(`${process.env.REACT_APP_API_BASE_URL}uploadImage`,{

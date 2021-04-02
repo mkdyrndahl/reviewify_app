@@ -9,7 +9,7 @@ function Movie(props){
       <td>{props.length} minutes</td>
       <td>{props.director}</td>
       <td>{props.description}</td>
-     
+      <td><button className="btn btn-danger" onClick={props.deleteMovie} value={props.id}>Delete</button></td>
     </tr>
     );
 }

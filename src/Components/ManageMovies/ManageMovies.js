@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { addMovieToServer, getMovies, uploadImage } from "../../Services/MovieService";
+import { addMovieToServer, getMovies, uploadImage, deleteMovieFromServer } from "../../Services/MovieService";
 import AddMovie from "../AddMovie/AddMovie";
-
-
 import MovieList from "../MovieList/MovieList";
 
 function ManageMovie() {
@@ -53,13 +51,20 @@ function ManageMovie() {
       await addMovieToServer(currentMovie);
       refreshPage();
   }
+
+  async function deleteMovie(e) {
+    const result = await deleteMovieFromServer(e.target.value);
+    console.log(result)
+    refreshPage();
+  }
   
 
   return (
-    <div className="table-responsive">
-
-        <AddMovie handleInputChange={handleInputChange} handleImageChange={handleImageChange} resetInput={resetInput} addMovie={addMovie} />
-      <MovieList movies={movies} />
+    <div className="table">
+        <AddMovie handleInputChange={handleInputChange}
+        handleImageChange={handleImageChange} 
+        resetInput={resetInput} addMovie={addMovie}/>
+      <MovieList movies={movies} deleteMovie={deleteMovie} />
     </div>
   );
 }
