@@ -1,8 +1,8 @@
 import React from "react";
 import Movie from "../Movie/Movie";
 
-function MovieList(props){
-    return(
+function MovieList(props) {
+    return (
         <table className="table align-middle">
         <thead>
           <tr>
