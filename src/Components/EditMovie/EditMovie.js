@@ -2,7 +2,7 @@ import React from "react";
 
 function EditMovie(props) {
     return (
-        <form className="container w-50">
+        <div className="container w-50">
             <div className="mb-2">
                 <label htmlFor="title" className="form-label">Movie Title</label>
                 <input
@@ -58,11 +58,8 @@ function EditMovie(props) {
                     onClick={props.resetInput}
                     value={props.movie.image.name} />
             </div>
-            <input
-                type="submit"
-                className="btn btn-primary mb-4"
-                onClick={props.updateMovie} value="Update Movie" />
-        </form>
+            <button className="btn btn-primary mb-4" onClick={props.updateMovie}>Update movie</button>
+        </div>
     );
 }
 
