@@ -53,19 +53,18 @@ function ManageMovie() {
   }
 
   async function addMovie(e) {
-    console.log(currentMovie);
     await addMovieToServer(currentMovie);
+    setCurrentMovie({});
     refreshPage();
   }
 
   async function deleteMovie(e) {
     const result = await deleteMovieFromServer(e.target.value);
-    console.log(result);
     refreshPage();
   }
 
   async function updateMovie(e) {
-    const result = await updateMovieToServer(currentMovie);
+    await updateMovieToServer(currentMovie);
     setAction("add");
     refreshPage();
   }
@@ -74,12 +73,11 @@ function ManageMovie() {
     e.preventDefault();
     let movieToUpdate = {};
     movies.forEach((movie) => {
-      if (movie._id == e.target.value) {
+      if (movie._id === e.target.value) {
         movieToUpdate = movie;
       }
     });
     setCurrentMovie(movieToUpdate);
-    console.log(currentMovie);
     setAction("edit");
   }
 

@@ -3,7 +3,7 @@ import React from "react";
 function EditMovie(props) {
   return (
     
-      <form className="container w-50">
+      <div className="container w-50">
         <div className="mb-2">
           <label htmlFor="title" className="form-label">
             Movie Title
@@ -82,7 +82,7 @@ function EditMovie(props) {
           className="btn btn-primary mb-4"
           onClick={props.updateMovie} value="Update Movie"/>
           
-      </form>
+      </div>
     
   );
 }

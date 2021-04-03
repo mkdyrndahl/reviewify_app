@@ -12,6 +12,7 @@ function MovieList(props){
             <th scope="col">Length</th>
             <th scope="col">Director</th>
             <th scope="col">Description</th>
+            <th scope="col">Edit</th>
             <th scope="col">Delete</th>
           </tr>
         </thead>
