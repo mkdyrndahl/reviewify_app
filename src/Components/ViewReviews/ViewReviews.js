@@ -8,7 +8,7 @@ import {
     dislikeReview
 } from '../../Services/ReviewService'
 
-function ViewReviews() {
+function ViewReviews(props) {
     const [reviews, setReviews] = useState([])
     const [currentMovie, setCurrentMovie] = useState([])
 
@@ -19,7 +19,7 @@ function ViewReviews() {
         })
     }, [])
 
-
+    
 
     return (
         <div>
