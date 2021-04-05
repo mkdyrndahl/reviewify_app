@@ -24,7 +24,7 @@ function App() {
         <div className="App">
             <Router>
                 <Switch>
-                    <Route path="/" exact component={ViewReviews}/>     
+                    <Route path="/" exact component={SearchPage}/>     
                     <Route path="/signin" exact component={SignIn}/>
                     <Route path="/signup" exact component={SignUp}/>
                     <Route path="/admin" exact component={ManageMovie}/>
