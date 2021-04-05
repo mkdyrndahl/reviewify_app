@@ -66,6 +66,11 @@ function SignIn(props) {
                 <small className="form-text text-danger">{passwordError}</small>
             </div>
             <button className="btn btn-primary float-end" onClick={signIn}>Sign In</button>
+
+            <div className="text-center mt-5">
+            <a href="/signup">Don't have an account, Sign up here</a>
+            </div>
+            
         </div>
     )
     );
