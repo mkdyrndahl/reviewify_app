@@ -24,7 +24,7 @@ export async function addReview(newReview)  {
 }
 
 export async function likeReview(newLike)  {
-    return fetch(`${process.env.REACT_APP_API_BASE_URL}user/reviews`, {
+    return fetch(`${process.env.REACT_APP_API_BASE_URL}user/reviews/like`, {
         method: "POST",
         headers: {"Content-Type" : "application/json"},
         body: JSON.stringify(newLike)
@@ -32,7 +32,7 @@ export async function likeReview(newLike)  {
 }
 
 export async function dislikeReview(newDislike)  {
-    return fetch(`${process.env.REACT_APP_API_BASE_URL}user/reviews`, {
+    return fetch(`${process.env.REACT_APP_API_BASE_URL}user/reviews/dislike`, {
         method: "POST",
         headers: {"Content-Type" : "application/json"},
         body: JSON.stringify(newDislike)
