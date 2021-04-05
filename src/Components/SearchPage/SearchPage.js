@@ -8,7 +8,6 @@ const SearchPage = (props) => {
   const [movieList, setMovieList] = useState([]);
 
   const fetchData = async () => {
-
     getMovies()
     .then((data) => {
         setMovieList(data);
@@ -23,9 +22,25 @@ const SearchPage = (props) => {
     setMovieList(filtered);
   };
 
+
+  function calculateRating(){
+    movieList.forEach(movie => {
+      var totalRate = 0;
+      movie.ratings.forEach(rating=>{
+        totalRate+= rating.rating;
+      })
+      movie["rating"] = (totalRate/movie.ratings.length).toFixed(1);
+    });
+    
+  }
+
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(()=>{
+    calculateRating();
+  });
 
   return (
     <>

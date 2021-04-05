@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import ManageMovie from './Components/ManageMovies/ManageMovies';
+import ManageMovie from './Components/Admin-ManageMovies/Admin-ManageMovies';
 import { authorize } from './Services/AuthService';
 import ViewReviews from './Components/ViewReviews/ViewReviews';
 import SignIn from './Components/SignIn/SignIn';

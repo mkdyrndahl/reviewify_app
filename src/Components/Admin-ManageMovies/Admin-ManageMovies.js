@@ -6,9 +6,9 @@ import {
     deleteMovieFromServer,
     updateMovieToServer
 } from "../../Services/MovieService";
-import AddMovie from "../AddMovie/AddMovie";
-import EditMovie from "../EditMovie/EditMovie";
-import MovieList from "../MovieList/MovieList";
+import AddMovie from "../Admin-AddMovie/Admin-AddMovie";
+import EditMovie from "../Admin-EditMovie/Admin-EditMovie";
+import Admin_MovieList from "../Admin-MovieList/Admin-MovieList";
 
 function ManageMovie() {
     const [movies, setMovies] = useState([]);
@@ -100,7 +100,7 @@ function ManageMovie() {
                 />
             )}
 
-            <MovieList
+            <Admin_MovieList
                 movies={movies}
                 editMovie={editMovie}
                 deleteMovie={deleteMovie}
