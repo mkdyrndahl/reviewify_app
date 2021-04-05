@@ -19,6 +19,7 @@ function ReviewList(props) {
           {props.reviews.map((review, index) => (
             <Review
               key={review.username}
+              movieID={review.movieID}
               image={review.image}
               title={review.title}
               description={review.description}

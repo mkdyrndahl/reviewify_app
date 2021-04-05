@@ -9,8 +9,8 @@ function Review(props) {
             <td>{props.description}</td>
             <td>{props.username}</td>
             <td>{props.likeRatio /* 21 Likes : 5 Dislikes */}</td>
-            <td><button className="btn btn-success" onClick={props.like} value={props.likeCount}>Like</button></td>
-            <td><button className="btn btn-danger" onClick={props.dislike} value={props.dislikeCount}>Dislike</button></td>
+            <td><button className="btn btn-success" onClick={props.like} value={props.movieID}>Like</button></td>
+            <td><button className="btn btn-danger" onClick={props.dislike} value={props.movieID}>Dislike</button></td>
         </tr>
     );
 }
