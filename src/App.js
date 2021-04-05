@@ -5,6 +5,7 @@ import { authorize } from './Services/AuthService';
 import ViewReviews from './Components/ViewReviews/ViewReviews';
 import SignIn from './Components/SignIn/SignIn';
 import SignUp from "./Components/SignUp/SignUp";
+import SearchPage from "./Components/SearchPage/SearchPage";
 
 function App() {
     const [user, setUser] = useState({
@@ -28,6 +29,7 @@ function App() {
                     <Route path="/signup" exact component={SignUp}/>
                     <Route path="/admin" exact component={ManageMovie}/>
                     <Route path="/review" exact component={ViewReviews}/>
+                    <Route path="/home" exact component={SearchPage}/>
                     
                 </Switch>
             </Router>

@@ -36,7 +36,7 @@ function SignIn(props) {
             }).then(user => {
                 console.log(user);
                 // todo: redirect to the main page
-                setRedirect("/review");
+                setRedirect("/home");
             }).catch(err => {
                 setPasswordError(err.toString());
             });
