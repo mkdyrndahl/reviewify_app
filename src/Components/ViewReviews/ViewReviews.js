@@ -21,6 +21,22 @@ function ViewReviews(props) {
         getReviews(movieId).then(x => setReviews(x));
     }, []);
 
+    const user = props.user
+    
+
+    useEffect(()=> { 
+        getReviews(movieId).then((json) => {
+            setReviews(json)
+        }).then(console.log(reviews))
+        
+    }, [])
+
+    /* how to find current movie?*/
+
+    /*async function getLikeRatio(reviews) {
+        await getReviewRatio(reviews)
+    }*/
+
     async function likeOnReview(e) {
         const result = await likeReview(e.target.value)
 

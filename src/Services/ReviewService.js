@@ -1,5 +1,6 @@
 export async function getReviews(movieId) {
     return fetch(`${process.env.REACT_APP_API_BASE_URL}reviews`, {
+        
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: movieId }),
