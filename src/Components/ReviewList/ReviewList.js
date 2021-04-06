@@ -30,6 +30,7 @@ function ReviewList(props) {
         <tbody>
           {props.reviews.map((review, index) => (
             <Review
+              user={props.user}
               key={review.username}
               description={review.description}
               username={review.username}

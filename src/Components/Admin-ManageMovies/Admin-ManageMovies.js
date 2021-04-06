@@ -10,7 +10,7 @@ import AddMovie from "../Admin-AddMovie/Admin-AddMovie";
 import EditMovie from "../Admin-EditMovie/Admin-EditMovie";
 import Admin_MovieList from "../Admin-MovieList/Admin-MovieList";
 
-function ManageMovie() {
+function ManageMovie(props) {
     const [movies, setMovies] = useState([]);
     const [currentMovie, setCurrentMovie] = useState();
     const [action, setAction] = useState("add");
@@ -81,6 +81,10 @@ function ManageMovie() {
     setAction("edit");
   }
 
+    if (props.user.role !== 'admin') {
+        return <h2>Only admin can manage movies</h2>;
+    }
+  
     return (
         <div className="table">
             {action === "add" ? (
