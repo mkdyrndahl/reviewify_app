@@ -33,6 +33,7 @@ function ReviewList(props) {
               dislikeAction={props.dislikeAction}
               likes={review.likes}
               dislikes={review.dislikes}
+              deleteAction={props.deleteAction}
             />
           ))
           }

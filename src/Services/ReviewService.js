@@ -48,10 +48,10 @@ export async function dislikeReview(newDislike)  {
 }
 
 export async function deleteReview(id, username)  {
-    return(`${process.env.REACT_APP_API_BASE_URL}admin/reviews`,{
+    return fetch(`${process.env.REACT_APP_API_BASE_URL}reviews`,{
         method: "DELETE",
-        headers: {"Content-Type" : "applicaiton/json"},
+        headers: {"Content-Type" : "application/json"},
         body: JSON.stringify({"id" : id, "username" : username})
-    }).then((response) => response.json())
+    }).then((response) => response.json());
 }
 

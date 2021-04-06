@@ -25,6 +25,11 @@ function ViewReviews(props) {
         fetchData();
     }, []);
   
+    function deleteAction(e) {
+        deleteReview(e.target.value, props.user.login);
+        setReviews(reviews.filter(x => x._id != e.target.value));
+    }
+
     function fetchData(){
         getMovie(movieId).then(x => setCurrentMovie(x));
         getReview(movieId).then(x => setReviews(x));
@@ -79,7 +84,7 @@ function ViewReviews(props) {
 
     return (
         <div>
-            <ReviewList user={props.user} reviews={reviews} likeAction={likeOnReview} dislikeAction={dislikeOnReview} delete={deleteReview} 
+            <ReviewList user={props.user} reviews={reviews} likeAction={likeOnReview} dislikeAction={dislikeOnReview} deleteAction={deleteAction}
             image={currentMovie.image}
             title={currentMovie.title}
             genres={currentMovie.genres}

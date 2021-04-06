@@ -1,12 +1,17 @@
 import React from "react";
+import { deleteReview } from "../../Services/ReviewService";
 
 
 function Review(props) {
     let likeButton = null;
     let dislikeButton = null;
+    let deleteButton = null;
     if (props.user.role !== '') {
         likeButton = <button className="btn btn-success mb-2" onClick={props.likeAction} value={props.id}>Like</button>;
-        dislikeButton = <button className="btn btn-danger" onClick={props.dislikeAction} value={props.id}>Dislike</button>;
+        dislikeButton = <button className="btn btn-danger mb-2" onClick={props.dislikeAction} value={props.id}>Dislike</button>;
+    }
+    if (props.user.role === 'admin') {
+        deleteButton = <button className="btn btn-danger" onClick={props.deleteAction} value={props.id}>Delete</button>;
     }
 
     return (
@@ -24,6 +29,7 @@ function Review(props) {
                     <div className="row">
                         {likeButton}
                         {dislikeButton}
+                        {deleteButton}
                     </div>
                 </div>
             </div>
