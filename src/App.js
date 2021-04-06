@@ -9,13 +9,18 @@ import SearchPage from "./Components/SearchPage/SearchPage";
 
 function App() {
     const [user, setUser] = useState({
+        id: '',
         login: '',
         role: '',
     });
     useEffect(() => {
         authorize().then(res => {
-            if (res.message === undefined) {
-                setUser({ login: res.login, role: res.role });
+            if (res !== undefined && res.message === undefined) {
+                setUser({
+                    id: res._id,
+                    login: res.login,
+                    role: res.role
+                });
             }
         });
     }, []);

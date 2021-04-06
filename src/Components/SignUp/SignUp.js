@@ -36,7 +36,6 @@ function SignUp(props) {
                 if (res.message) {
                     setConfirmPasswordError(res.message);
                 } else {
-                    // todo: redirect to the main page
                     setRedirect("/signin");
                 }
             });
