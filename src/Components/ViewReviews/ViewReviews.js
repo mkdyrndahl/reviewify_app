@@ -60,6 +60,7 @@ function ViewReviews(props) {
         <div>
             <ReviewList reviews={reviews} like={likeOnReview} dislike={dislikeOnReview} delete={deleteReview} />
             <h1>movieId: {movieId}</h1>
+            <AddReview  />
         </div>
     )
 }
