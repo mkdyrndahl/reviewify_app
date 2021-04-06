@@ -29,16 +29,26 @@ function App() {
         <div className="App">
             <Router>
                 <Switch>
-                    <Route path="/" exact component={SearchPage} />
-                    <Route path="/signin" exact component={SignIn} />
-                    <Route path="/signup" exact component={SignUp} />
-                    <Route path="/admin" exact component={ManageMovie} />
-                    <Route path="/review" exact component={ViewReviews} />
-                    <Route path="/home" exact component={SearchPage} />
-                    <Route path="/review/:movieId" exact component={ViewReviews} />
+                    <Route exact path="/">
+                        <SearchPage user={user} />
+                    </Route>
+                    <Route exact path="/signin">
+                        <SignIn />
+                    </Route>
+                    <Route exact path="/signup">
+                        <SignUp />
+                    </Route>
+                    <Route exact path="/admin">
+                        <ManageMovie user={user} />
+                    </Route>
+                    <Route exact path="/home">
+                        <SearchPage user={user} />
+                    </Route>
+                    <Route exact path="/review/:movieId">
+                        <ViewReviews user={user} />
+                    </Route>
                 </Switch>
             </Router>
-
         </div>
     );
 }
