@@ -33,7 +33,7 @@ function App() {
                         <SearchPage user={user} />
                     </Route>
                     <Route exact path="/signin">
-                        <SignIn />
+                        <SignIn setUser={setUser}/>
                     </Route>
                     <Route exact path="/signup">
                         <SignUp />

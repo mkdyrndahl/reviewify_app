@@ -34,6 +34,7 @@ function SignIn(props) {
                     throw res.message;
                 return res;
             }).then(user => {
+                props.setUser(user);
                 setRedirect("/home");
             }).catch(err => {
                 setPasswordError(err.toString());
