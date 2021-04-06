@@ -30,7 +30,7 @@ function App() {
                     <Route path="/admin" exact component={ManageMovie}/>
                     <Route path="/review" exact component={ViewReviews}/>
                     <Route path="/home" exact component={SearchPage}/>
-                    
+                    <Route path="/movies/:movieId" exact component={ViewReviews}/>
                 </Switch>
             </Router>
 

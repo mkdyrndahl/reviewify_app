@@ -35,6 +35,7 @@ function SignIn(props) {
                 return res;
             }).then(user => {
                 console.log(user);
+                localStorage.setItem('userId', user._id);
                 // todo: redirect to the main page
                 setRedirect("/home");
             }).catch(err => {

@@ -49,6 +49,7 @@ function ViewReviews(props) {
     return (
         <div>
             <ReviewList reviews={reviews} like={likeOnReview} dislike={dislikeOnReview} delete={deleteReview}/>
+            <h1>movieId: {props.match.params.movieId}</h1>
         </div>
     )
 }

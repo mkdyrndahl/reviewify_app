@@ -31,7 +31,6 @@ const SearchPage = (props) => {
       })
       movie["rating"] = (totalRate/movie.ratings.length).toFixed(1);
     });
-    
   }
 
   useEffect(() => {
