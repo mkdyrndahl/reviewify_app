@@ -39,12 +39,12 @@ const SearchPage = (props) => {
 
       reviews.forEach(review=>{
         console.log(review.rating);
-        if(review.movieID == movie._id){
+        if(review.movieID === movie._id){
           totalRate += parseInt(review.rating);
           noOfReviews++;
         }
       })
-      if(totalRate==0)
+      if(totalRate === 0)
       movie["rating"] = 0;
       else
       movie["rating"] = parseFloat(totalRate/noOfReviews).toFixed(1);

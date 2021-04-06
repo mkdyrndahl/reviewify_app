@@ -59,7 +59,7 @@ function ManageMovie(props) {
   }
 
   async function deleteMovie(e) {
-    const result = await deleteMovieFromServer(e.target.value);
+    await deleteMovieFromServer(e.target.value);
     refreshPage();
   }
 

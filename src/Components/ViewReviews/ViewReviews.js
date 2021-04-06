@@ -5,7 +5,6 @@ import {
     getReview,
     addReview,
     deleteReview,
-    getReviewRatio,
     likeReview,
     dislikeReview
 } from '../../Services/ReviewService'
@@ -23,25 +22,23 @@ function ViewReviews(props) {
     calculateRating();
 
     useEffect(() => {
-        
         fetchData();
     }, []);
   
     function fetchData(){
         getMovie(movieId).then(x => setCurrentMovie(x));
         getReview(movieId).then(x => setReviews(x));
-        
     }
 
     async function likeOnReview(e) {
         const id = {"id": e.target.value};
-        const result = await likeReview(id);
+        await likeReview(id);
         fetchData();
     }
 
     async function dislikeOnReview(e) {
         const id = {"id": e.target.value};
-        const result = await dislikeReview(id);
+        await dislikeReview(id);
         fetchData();
     }
 
@@ -53,7 +50,7 @@ function ViewReviews(props) {
             "description": review,
             "rating": rating
         }
-        const result = await addReview(newReview);
+        await addReview(newReview);
         fetchData();
         calculateRating();   
     }
@@ -69,12 +66,12 @@ function ViewReviews(props) {
           var totalRate = 0;
           var noOfReviews = 0;
           reviews.forEach(review=>{
-            if(review.movieID == currentMovie._id){
+            if(review.movieID === currentMovie._id){
               totalRate += parseInt(review.rating);
               noOfReviews++;
             }
           })
-          if(totalRate==0)
+          if(totalRate === 0)
             currentMovie["rating"] = 0;
           else
             currentMovie["rating"] = parseFloat(totalRate/noOfReviews).toFixed(1);
