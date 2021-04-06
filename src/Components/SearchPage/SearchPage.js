@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import MovieList from "../MovieList/MovieList";
+import UserOptions from "../UserOptions/UserOptions";
 import {getMovies} from "../../Services/MovieService";
 
 const SearchPage = (props) => {
@@ -41,10 +42,15 @@ const SearchPage = (props) => {
     calculateRating();
   });
 
+
+
   return (
     <>
       <h1>Movies</h1>
-      <SearchBar updateInput={updateInput} />
+      <div>
+        <SearchBar updateInput={updateInput} />
+        <UserOptions user={props.user}/>
+      </div>
       <MovieList movies={movieList} />
     </>
   );
