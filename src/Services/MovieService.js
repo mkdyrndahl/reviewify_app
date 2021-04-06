@@ -1,3 +1,12 @@
+export async function getMovie(id) {
+    let data = JSON.stringify({ id: id });
+    return fetch(`${process.env.REACT_APP_API_BASE_URL}admin/movie`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: data
+    }).then(x => x.json());
+}
+
 export async function getMovies() {
     return fetch(`${process.env.REACT_APP_API_BASE_URL}admin/movies`, {
         method: "GET",
@@ -5,8 +14,7 @@ export async function getMovies() {
     }).then((response) => response.json());
 }
 
-
-export async function addMovieToServer(newMovie){
+export async function addMovieToServer(newMovie) {
     const data = JSON.stringify(newMovie);
     return fetch(`${process.env.REACT_APP_API_BASE_URL}admin/movies`, {
         method: "POST",
