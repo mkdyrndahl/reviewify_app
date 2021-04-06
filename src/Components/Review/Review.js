@@ -4,8 +4,6 @@ import React from "react";
 function Review(props) {
     return (
         <tr>
-            <td><img src={props.image} alt={props.title} width="300" height="200" /></td>
-            <td>{props.title}</td>
             <td>{props.description}</td>
             <td>{props.username}</td>
             <td>{props.likeRatio /* 21 Likes : 5 Dislikes */}</td>
