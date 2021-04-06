@@ -3,15 +3,20 @@ import React from "react"
 function addReview(props)   {
     return(
     <div className="container w-100">
+        
     <div className="md-2">
-       <label htmlFor="description" className="form-label">
-            Add a Review
+    <h2>Add a Review</h2>
+        <label htmlFor="rating"><h5>Rating: {props.rating} </h5></label><br/>
+        <input type="range" id="rating" className="form-range col-4" onChange={props.handleRating} min="0" max="5" value={props.rating}/><br/>
+        <label htmlFor="description" className="form-label">
+            <h5>Review</h5>
         </label>
-        <input
-            type="text"
+        <textarea 
+            rows="4"
+            cols="50"
             className="form-control"
             id="description"
-            /*onChange={props.handleInputChange}*/
+            onChange={props.handleInputChange}
       />
     </div>
     <br />

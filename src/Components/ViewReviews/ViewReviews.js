@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReviewList from "../ReviewList/ReviewList"
 import AddReview from "../AddReview/AddReview"
 import {
-    getReviews,
+    getReview,
     addReview,
     deleteReview,
     getReviewRatio,
@@ -14,36 +14,85 @@ import { getMovie } from "../../Services/MovieService";
 
 function ViewReviews(props) {
     const [reviews, setReviews] = useState([])
-    const [currentMovie, setCurrentMovie] = useState([]);
+    const [currentMovie, setCurrentMovie] = useState({});
+    const [review, setReview] = useState({});
+    const [rating, setRating] = useState(0);
+    
     let { movieId } = useParams();
+
+    calculateRating();
+
     useEffect(() => {
-        getMovie(movieId).then(x => setCurrentMovie(x));
-        getReviews(movieId).then(x => setReviews(x));
+        
+        fetchData();
     }, []);
+  
+    function fetchData(){
+        getMovie(movieId).then(x => setCurrentMovie(x));
+        getReview(movieId).then(x => setReviews(x));
+        
+    }
 
     async function likeOnReview(e) {
-        const result = await likeReview(e.target.value)
-
+        const id = {"id": e.target.value};
+        const result = await likeReview(id);
+        fetchData();
     }
 
     async function dislikeOnReview(e) {
-        const result = await dislikeReview(e.target.value)
-
+        const id = {"id": e.target.value};
+        const result = await dislikeReview(id);
+        fetchData();
     }
 
-    async function addOnReview(e) {
-        await addReview(currentMovie)
-
+    async function addNewReview(e) {
+        const newReview = {
+            "movieID": movieId,
+            "userID": props.user._id,
+            "username": props.user.login,
+            "description": review,
+            "rating": rating
+        }
+        const result = await addReview(newReview);
+        fetchData();
+        calculateRating();   
     }
 
-    async function deleteReview(e) {
-
+    function handleInputChange(e){
+        setReview(e.target.value);
     }
+    function handleRating(e){
+        setRating(e.target.value);
+    }
+
+    function calculateRating(){
+          var totalRate = 0;
+          var noOfReviews = 0;
+          reviews.forEach(review=>{
+            if(review.movieID == currentMovie._id){
+              totalRate += parseInt(review.rating);
+              noOfReviews++;
+            }
+          })
+          if(totalRate==0)
+            currentMovie["rating"] = 0;
+          else
+            currentMovie["rating"] = parseFloat(totalRate/noOfReviews).toFixed(1);
+      }
 
     return (
         <div>
-            <ReviewList user={props.user} reviews={reviews} like={likeOnReview} dislike={dislikeOnReview} delete={deleteReview} />
-            {props.user.role !== '' ? <AddReview  /> : <div/>}
+            <ReviewList user={props.user} reviews={reviews} likeAction={likeOnReview} dislikeAction={dislikeOnReview} delete={deleteReview} 
+            image={currentMovie.image}
+            title={currentMovie.title}
+            genres={currentMovie.genres}
+            director={currentMovie.director}
+            length={currentMovie.length}
+            description={currentMovie.description}
+            rating={currentMovie.rating}
+            />
+
+            {props.user.role !== '' ? <AddReview handleInputChange={handleInputChange} addReview={addNewReview} handleRating={handleRating} rating={rating}/> : <div/>}
         </div>
     )
 }
